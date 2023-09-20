@@ -1,7 +1,7 @@
 package list.util;
 
 public class ListNode {
-    int val;
+    public int val;
     public ListNode next;
 
     public ListNode(int val) {
@@ -15,6 +15,10 @@ public class ListNode {
     }
 
     public String toString() {
-        return "" + val + "-" + next;
+        if (next != null) {
+            return "" + val + "-" + next;
+        } else {
+            return "" + val;
+        }
     }
 }
