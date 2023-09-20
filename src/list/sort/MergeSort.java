@@ -2,6 +2,7 @@ package list.sort;
 
 import list.util.ListGenerator;
 import list.util.ListNode;
+import list.util.Util;
 
 public class MergeSort {
     public static void main(String[] args) {
@@ -58,7 +59,7 @@ public class MergeSort {
                     cur.next = null; // 断开后续链表
                 }
                 // 合并左右链表
-                ListNode merge = this.mergeTwoLists(left, right);
+                ListNode merge = Util.mergeTwoLists(left, right);
 
                 // 连接结果
                 prev.next = merge;
@@ -70,32 +71,5 @@ public class MergeSort {
             }
         }
         return dummyHead.next;
-    }
-
-    // 合并有序链表
-    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(-1, null);
-        ListNode cur = dummy;
-        while (l1 != null && l2 != null) {
-            if (l1.val < l2.val) {
-                cur.next = l1;
-                l1 = l1.next;
-            } else {
-                cur.next = l2;
-                l2 = l2.next;
-            }
-            cur = cur.next;
-        }
-        while (l1 != null) {
-            cur.next = l1;
-            l1 = l1.next;
-            cur = cur.next;
-        }
-        while (l2 != null) {
-            cur.next = l2;
-            l2 = l2.next;
-            cur = cur.next;
-        }
-        return dummy.next;
     }
 }
