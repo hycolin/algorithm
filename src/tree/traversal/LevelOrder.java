@@ -1,4 +1,4 @@
-package tree;
+package tree.traversal;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -20,9 +20,9 @@ public class LevelOrder {
         levelOrder.bfs(root);
         System.out.println(levelOrder.result);
 
-        levelOrder.result = new ArrayList<>();
-        levelOrder.dfs(root, 0);
-        System.out.println(levelOrder.result);
+        List<List<Integer>> result = new ArrayList<>();
+        levelOrder.dfs(root, 0, result);
+        System.out.println(result);
     }
 
     // 广度
@@ -51,7 +51,7 @@ public class LevelOrder {
     }
 
     // 深度
-    private void dfs(TreeNode node, int level) {
+    public void dfs(TreeNode node, int level, List<List<Integer>> result) {
         if (node == null)
             return;
 
@@ -60,7 +60,7 @@ public class LevelOrder {
         }
         List<Integer> list = result.get(level);
         list.add(node.val);
-        dfs(node.left, level + 1);
-        dfs(node.right, level + 1);
+        dfs(node.left, level + 1, result);
+        dfs(node.right, level + 1, result);
     }
 }
