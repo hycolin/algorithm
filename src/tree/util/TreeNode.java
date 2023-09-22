@@ -5,7 +5,15 @@ public class TreeNode {
     public TreeNode left;
     public TreeNode right;
 
+    public TreeNode() {
+
+    }
+
+    public TreeNode(int val) {
+        this.val = val;
+    }
+
     public String toString() {
-        return "" + val + "-" + left + "-" + right;
+        return "" + val;
     }
 }

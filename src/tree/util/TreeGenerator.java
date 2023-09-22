@@ -11,6 +11,11 @@ public class TreeGenerator {
     }
 
     public static TreeNode build(Integer[] data) {
+        // return buildByIterative(data);
+        return buildByRecursive(data, 0);
+    }
+
+    private static TreeNode buildByIterative(Integer[] data) {
         List<TreeNode> nodeList = new ArrayList<>();
 
         for (Integer item : data) {
@@ -42,5 +47,15 @@ public class TreeGenerator {
             }
         }
         return nodeList.get(0);
+    }
+
+    private static TreeNode buildByRecursive(Integer[] data, int index) {
+        if (index >= data.length || data[index] == null) {
+            return null;
+        }
+        TreeNode node = new TreeNode(data[index]);
+        node.left = buildByRecursive(data, 2 * index + 1);
+        node.right = buildByRecursive(data, 2 * index + 2);
+        return node;
     }
 }
