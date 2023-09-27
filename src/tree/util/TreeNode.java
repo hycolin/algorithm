@@ -16,4 +16,11 @@ public class TreeNode {
     public String toString() {
         return "" + val;
     }
+
+    public boolean equals(TreeNode other) {
+        if (other == null) {
+            return false;
+        }
+        return this.val == other.val;
+    }
 }
