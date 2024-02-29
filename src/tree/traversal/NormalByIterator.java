@@ -7,6 +7,15 @@ import java.util.Stack;
 import tree.util.TreeGenerator;
 import tree.util.TreeNode;
 
+/**
+ * 
+ * input: [1, 2, 3, 21, 22, 23, 24]
+ * 
+ * output:
+ * preorder: [1, 2, 21, 22, 3, 23, 24]
+ * inorder: [21, 2, 22, 1, 23, 3, 24]
+ * postorder: [21, 22, 2, 23, 24, 3, 1]
+ */
 public class NormalByIterator {
     public static void main(String[] args) {
         Integer[] data = new Integer[] { 1, 2, 3, 21, 22, 23, 24 };
